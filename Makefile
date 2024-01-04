@@ -19,4 +19,7 @@ sqlcpull:
 sqlc:
 	docker run --rm -v ${PWD}:/src -w /src kjconroy/sqlc generate
 
-.PHONY: postgres createdb dropdb migrateup migratedown sqlc sqlcpull
+test: 
+	go test -v -cover ./...
+
+.PHONY: postgres createdb dropdb migrateup migratedown sqlc sqlcpull test
